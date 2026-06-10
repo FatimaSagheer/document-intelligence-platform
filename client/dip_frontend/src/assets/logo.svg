@@ -1,0 +1,49 @@
+<svg width="100%" viewBox="0 0 680 300" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>DocAi Logo</title>
+  <desc>DocAi brand logo featuring a document icon with an AI circuit pattern and modern typography</desc>
+
+  <defs>
+    <style>
+      .logo-text-doc { font-family: Arial, sans-serif; font-size: 72px; font-weight: 500; fill: #1a1a1a; }
+      .logo-text-ai  { font-family: Arial, sans-serif; font-size: 72px; font-weight: 500; fill: #4F7EF7; }
+      .tagline       { font-family: Arial, sans-serif; font-size: 15px; font-weight: 400; fill: #6b7280; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <!-- Document shape -->
+  <g transform="translate(140, 60)">
+    <!-- Main doc body -->
+    <rect x="0" y="0" width="80" height="100" rx="8" fill="#4F7EF7"/>
+    <!-- Folded corner -->
+    <polygon points="58,0 80,22 58,22" fill="#2A57D9"/>
+    <!-- Fold line -->
+    <line x1="58" y1="0" x2="58" y2="22" stroke="#2A57D9" stroke-width="1"/>
+    <line x1="58" y1="22" x2="80" y2="22" stroke="#2A57D9" stroke-width="1"/>
+
+    <!-- Document lines -->
+    <rect x="12" y="36" width="36" height="4" rx="2" fill="white" opacity="0.9"/>
+    <rect x="12" y="48" width="50" height="4" rx="2" fill="white" opacity="0.7"/>
+    <rect x="12" y="60" width="44" height="4" rx="2" fill="white" opacity="0.7"/>
+    <rect x="12" y="72" width="30" height="4" rx="2" fill="white" opacity="0.5"/>
+
+    <!-- AI circuit dot pattern -->
+    <circle cx="20" cy="90" r="3" fill="white" opacity="0.9"/>
+    <circle cx="32" cy="90" r="3" fill="white" opacity="0.6"/>
+    <circle cx="44" cy="90" r="3" fill="white" opacity="0.9"/>
+    <line x1="23" y1="90" x2="29" y2="90" stroke="white" stroke-width="1.5" opacity="0.6"/>
+    <line x1="35" y1="90" x2="41" y2="90" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Text: Doc -->
+  <text x="250" y="148" class="logo-text-doc">Doc</text>
+  <!-- Text: Ai -->
+  <text x="382" y="148" class="logo-text-ai">Ai</text>
+
+  <!-- Underline accent -->
+  <rect x="250" y="162" width="168" height="3" rx="1.5" fill="#4F7EF7" opacity="0.3"/>
+  <rect x="250" y="162" width="80" height="3" rx="1.5" fill="#4F7EF7"/>
+
+  <!-- Tagline -->
+  <text x="250" y="198" class="tagline">INTELLIGENT DOCUMENT ASSISTANT</text>
+
+</svg>

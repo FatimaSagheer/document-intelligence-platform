@@ -1,0 +1,1 @@
+Artificial intelligence is transforming how we work. Machine learning models can now understand documents and answer questions about them. This technology is called RAG — Retrieval Augmented Generation. It works by splitting documents into chunks, converting them to vectors, and searching for relevant context at query time.

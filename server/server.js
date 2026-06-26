@@ -24,6 +24,13 @@ app.get('/health', async (req, res) => {
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/documents', require('./routes/documents'));
 
+app.get('/test-search', async (req, res) => {
+  const { similaritySearch } = require('./rag/searcher');
+  // Replace with your actual test user's UUID from Supabase Auth
+  const results = await similaritySearch('What is RAG?', 'df2d835c-5e0e-45f8-9c72-990ce7e8b628');
+  res.json({ results });
+});
+
 app.get('/test-chunk', (req, res) => {
   const { chunkWithMetadata, getChunkStats } = require('./rag/chunker');
 
@@ -34,6 +41,7 @@ app.get('/test-chunk', (req, res) => {
 
   res.json({ stats, firstChunk: chunks[0], lastChunk: chunks[chunks.length - 1] });
 });
+app.use('/api/chat', require('./routes/chat'));
 // app.get('/test-extract', async (req, res) => {
 //   const { extractText, getWordCount } = require('./rag/extractor');
 //   const fs = require('fs');

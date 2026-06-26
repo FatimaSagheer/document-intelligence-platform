@@ -61,6 +61,7 @@ router.get('/', requireAuth, async (req, res) => {
     .select('*')
     .eq('user_id', req.user.id)
     .order('created_at', { ascending: false });
+     console.log('DEBUG query result:', { data, error }); 
 
   if (error) return res.status(500).json({ error: error.message });
   res.json({ documents: data });

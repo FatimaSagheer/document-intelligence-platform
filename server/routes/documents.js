@@ -79,5 +79,6 @@ router.get('/', requireAuth, async (req, res) => {
 //     console.log(`Doc ${docId} marked ready`);
 //   }, 2000);
 // }
+ 
 
 module.exports = router;

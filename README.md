@@ -9,6 +9,40 @@ A Retrieval-Augmented Generation (RAG) system that lets users upload documents a
 
 ---
 
+##  Motivation
+
+Large Language Models are prone to hallucination — producing fluent, confident 
+answers not actually grounded in real source material. This is especially risky 
+in high-stakes domains like medicine, where an incorrect answer can cause harm.
+
+This project explores Retrieval-Augmented Generation (RAG) as a mitigation: 
+grounding LLM responses in retrieved document content, with visible source 
+citations so users can verify claims themselves. It serves as the technical 
+foundation for my ongoing research interest in trustworthy, domain-specific 
+medical question answering.
+
+##  Future Goals
+
+This project is the technical foundation for a broader research direction I'm 
+pursuing: trustworthy Retrieval-Augmented Generation for medical question 
+answering. Planned next steps include:
+
+- **Domain shift to medical corpora** — replacing the general-purpose document 
+  set with medical literature (WHO guidelines, PubMed abstracts, clinical 
+  guidelines) to evaluate RAG performance in a high-stakes domain
+- **Confidence scoring and hallucination detection** — flagging answers when 
+  retrieved context is insufficient to support them, rather than returning a 
+  confident-sounding but ungrounded response
+- **Structured evaluation** — building a test set of medical Q&A pairs to 
+  measure retrieval precision, answer accuracy, and hallucination rate, 
+  rather than relying on qualitative assessment
+- **Low-resource language support** — extending retrieval and generation to 
+  underrepresented languages (e.g. Urdu), an area with real-world impact but 
+  limited existing research
+
+This work directly informs my interest in graduate research on trustworthy, 
+domain-specialized AI systems for healthcare.
+
 ## 🧠 How It Works
 
 ```
@@ -212,6 +246,8 @@ Generates the final answer using Claude.
 - Streaming Claude responses to the frontend
 - Hybrid search (vector + keyword BM25) for better retrieval
 - Support for additional file types: `.pptx`, `.csv`, `.xlsx`
+- Confidence scoring / hallucination flagging — detect when retrieved context is insufficient to support a generated answer
+- Extension to medical domain corpora (clinical guidelines, PubMed abstracts) with a structured evaluation set measuring retrieval precision and factual accuracy
 
 ---
 

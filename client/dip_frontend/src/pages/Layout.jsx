@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/newLogo.svg";
 
 /**
  * Shared sidebar layout used by Dashboard, Documents, ChatHistory, Settings.

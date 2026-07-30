@@ -21,11 +21,18 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
     const { file } = req;
     if (!file) return res.status(400).json({ error: 'No file provided' });
 
+    console.log('DEBUG 1 - req.user:', req.user);
+    console.log('DEBUG 2 - file:', file.originalname, file.mimetype);
+
     // 1. Upload to Supabase Storage
     const filePath = `${req.user.id}/${Date.now()}_${file.originalname}`;
+    console.log('DEBUG 3 - filePath:', filePath);
+
     const { error: storageError } = await supabase.storage
       .from('documents')
       .upload(filePath, file.buffer, { contentType: file.mimetype });
+
+    console.log('DEBUG 4 - storageError:', storageError);
 
     if (storageError) return res.status(500).json({ error: storageError.message });
 
@@ -41,6 +48,9 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
       .select()
       .single();
 
+    console.log('DEBUG 5 - dbError:', dbError);
+    console.log('DEBUG 6 - doc:', doc);
+
     if (dbError) return res.status(500).json({ error: dbError.message });
 
     // 3. Respond immediately — RAG pipeline runs after
@@ -50,10 +60,10 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
     processDocument(doc.id, file.buffer, file.mimetype, req.user.id);
 
   } catch (err) {
+    console.log('DEBUG 7 - caught error:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
-
 // GET /api/documents — list user's documents
 router.get('/', requireAuth, async (req, res) => {
   const { data, error } = await supabase
